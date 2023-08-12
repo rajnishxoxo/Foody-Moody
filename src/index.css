@@ -1,0 +1,19 @@
+/* Header */
+
+.main-container{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-container{
+    width: 30%;
+    border: 1px solid black;
+}
+
+.logo{
+    width: 60px;
+    height: 60px;
+}
