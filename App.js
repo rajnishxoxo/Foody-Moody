@@ -5,7 +5,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const App = () => {
   return (
     <div>
-      <h1>Hello</h1>
+      
     </div>
   );
 };
