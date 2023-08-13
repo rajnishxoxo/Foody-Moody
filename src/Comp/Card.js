@@ -17,10 +17,10 @@ const Card = (props) => {
         />
       </div>
       <div className="card-info">
-        <h3>{name}</h3>
-        <h4>{avgRating}</h4>
-        <p>{cuisines}</p>
-        <p>{address}</p>
+        <h3 className="restroName">{name}</h3>
+        <h4 className="rating">{avgRating}⭐</h4>
+        <p className="card-para">{cuisines}</p>
+        <p className="card-para">{address}</p>
       </div>
     </div>
   );
