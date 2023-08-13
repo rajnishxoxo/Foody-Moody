@@ -5,17 +5,23 @@ import { useEffect, useState } from "react";
 const Body = () => {
   const [listOfRestro, setListOfRestro] = useState(restaurantList);
 
-  // const [filterList , setFilterList]= useState('')
+  const [filterList, setFilterList] = useState(restaurantList);
 
   const [value, setvalue] = useState("");
 
-  const fetchData=async()=>{
-    const json = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.10296183168158&lng=79.0430336818099&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
-    const data = await json.json()
-    console.log(data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setListOfRestro(data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    
-  }
+  const fetchData = async () => {
+    const json = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.10296183168158&lng=79.0430336818099&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const data = await json.json();
+    console.log(
+      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setListOfRestro(
+      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilterList(data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  };
 
   useEffect(() => {
     fetchData();
@@ -37,7 +43,7 @@ const Body = () => {
         handleClick={handleClick}
       />
       <div className="body-container">
-        {listOfRestro.map((data, index) => {
+        {filterList.map((data, index) => {
           return <Card key={index} resList={data} handleClick={handleClick} />;
         })}
       </div>
