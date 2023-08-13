@@ -3,7 +3,7 @@ const Card = (props) => {
   const { name, avgRating, address, cuisines, cloudinaryImageId } =
     resList.info;
 
-  console.log(name, avgRating, address, cuisines, cloudinaryImageId);
+  // console.log(name, avgRating, address, cuisines, cloudinaryImageId);
 
   return (
     <div className="card-container">

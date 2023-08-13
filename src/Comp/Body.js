@@ -7,9 +7,9 @@ const Body = () => {
     <Search/>
     <div className="body-container">
       
-      {restaurantList.map((data) => {
+      {restaurantList.map((data,index ) => {
        
-       return <Card resList={data}/>
+       return <Card key={index} resList={data}/>
       })}
     </div>
     </>
