@@ -7,7 +7,7 @@ import Card from "./src/Comp/Card.js";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const App = () => {
   return (
-    <div>
+    <div className="main-div">
       <Header/>
       <Body/>
     </div>
