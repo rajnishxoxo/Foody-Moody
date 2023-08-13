@@ -37,6 +37,16 @@
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
+  
+}
+
+.ul-element>li{
+  border-bottom: 2px solid transparent; /* Initially transparent border */
+  transition: border-color 0.3s;
+}
+
+.ul-element>li:hover {
+  border-bottom-color: orange; /* Change border color to orange on hover */
 }
 
 /* Cards */
