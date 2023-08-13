@@ -31,7 +31,13 @@ const Body = () => {
     setvalue(e.target.value);
   };
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    let filterData = listOfRestro.filter((data)=>{
+      return data.info.name.toLowerCase().includes(value.toLowerCase());
+    
+    })
+    setFilterList(filterData)
+  };
 
   console.log(value);
 
