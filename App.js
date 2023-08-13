@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div>
       <Header/>
-      <Card/>
+      <Body/>
     </div>
   );
 };
