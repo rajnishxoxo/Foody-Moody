@@ -1,13 +1,8 @@
-import { useState } from "react";
 
-const Search = () => {
-  const [value, setvalue] = useState("");
 
-  const handleInputChange = (e) => {
-    setvalue(e.target.value)
-  };
+const Search = ({value,handleInputChange,handleClick}) => {
+ 
 
-  console.log(value)
 
   return (
     <div className="search">
@@ -17,7 +12,7 @@ const Search = () => {
         value={value}
         onChange={handleInputChange}
       />
-      <button className="search-button">🔍</button>
+      <button className="search-button" onClick={handleClick}>🔍</button>
     </div>
   );
 };
