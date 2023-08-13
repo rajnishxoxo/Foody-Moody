@@ -1,10 +1,8 @@
+const Search = () => {
+  return <div className="search">
+    <input type="text" placeholder="Search for restaurants and food"/>
+    <button className="search-button">🔍</button>
+  </div>;
+};
 
-const Search =()=>{
-    return(
-        <div>
-
-        </div>
-    )
-}
-
-export default Search
+export default Search;
