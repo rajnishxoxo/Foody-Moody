@@ -1,44 +1,46 @@
 import restaurantList from "./MockData.js";
 import Card from "./Card.js";
 import Search from "./Search.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Body = () => {
+  const [listOfRestro, setListOfRestro] = useState(restaurantList);
 
-  const [listOfRestro , setListOfRestro] = useState(restaurantList);
-
-  const [filterList , setFilterList]= useState(restaurantList)
+  // const [filterList , setFilterList]= useState('')
 
   const [value, setvalue] = useState("");
 
-  
-
-  const handleInputChange = (e) => {
-    setvalue(e.target.value)
-  };
-
-  const handleClick=()=>{
-    filterList.map((data)=>{
-      if(data.info.name.includes(value)){
-        return data;
-      }
-      setListOfRestro(data)
-    })
-
+  const fetchData=async()=>{
+    const json = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.10296183168158&lng=79.0430336818099&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+    const data = await json.json()
+    console.log(data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setListOfRestro(data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     
   }
 
-  console.log(value)
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const handleInputChange = (e) => {
+    setvalue(e.target.value);
+  };
+
+  const handleClick = () => {};
+
+  console.log(value);
 
   return (
-   <>
-    <Search handleInputChange={handleInputChange} value={value} handleClick={handleClick}/>
-    <div className="body-container">
-      
-      {listOfRestro.map((data,index ) => {
-       
-       return <Card key={index} resList={data} handleClick={handleClick}/>
-      })}
-    </div>
+    <>
+      <Search
+        handleInputChange={handleInputChange}
+        value={value}
+        handleClick={handleClick}
+      />
+      <div className="body-container">
+        {listOfRestro.map((data, index) => {
+          return <Card key={index} resList={data} handleClick={handleClick} />;
+        })}
+      </div>
     </>
   );
 };
