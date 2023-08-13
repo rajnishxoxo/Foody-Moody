@@ -19,7 +19,7 @@ const Card = (props) => {
       <div className="card-info">
         <h3 className="restroName">{name}</h3>
         <h4 className="rating">{avgRating}⭐</h4>
-        <p className="card-para">{cuisines.join(',')}</p>
+        <p className="card-cuisine">{cuisines.join(',')}</p>
         <p className="card-para">{address}</p>
       </div>
     </div>

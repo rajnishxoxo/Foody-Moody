@@ -42,13 +42,12 @@
 /* Cards */
 
 .card-container {
-  text-decoration: none;
-  color: inherit;
-  outline: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
-  display: block;
   width: 17.5rem;
-  height: auto;
+  /* height: auto; */
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -79,6 +78,7 @@
   overflow: hidden;
   width: 100%;
   text-align: center;
+  margin-top: -5px;
 }
 .rating {
   font-size: 26px;
@@ -87,6 +87,21 @@
   letter-spacing: -0.3px;
   color: rgba(2, 6, 12, 0.75);
   text-align: center;
+  margin-top: -10px;
+
+}
+
+.card-cuisine{
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 19px;
+  letter-spacing: -0.3px;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px;
+  overflow: hidden;
+  white-space: nowrap; /* Prevents text from wrapping */
+  text-overflow: ellipsis;
 }
 
 .card-para {
@@ -98,6 +113,7 @@
   overflow: hidden;
   width: 100%;
   text-align: center;
+  margin-top: -15px;
 }
 
 .body-container {
