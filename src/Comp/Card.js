@@ -1,22 +1,26 @@
 const Card = (props) => {
- 
+  const resList = props.resList;
+  const { name, avgRating, address, cuisines, cloudinaryImageId } =
+    resList.info;
 
- const resList = props.resList
- console.log(resList)
-  // const{name,avgRating,address,cuisines} = resList[0].info
-
-  // console.log(name,avgRating,address,cuisines)
+  console.log(name, avgRating, address, cuisines, cloudinaryImageId);
 
   return (
     <div className="card-container">
       <div className="card-img">
-        <img />
+        <img
+          className="card-logo"
+          src={
+            "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+            cloudinaryImageId
+          }
+        />
       </div>
       <div className="card-info">
-        <h3>{resList.info.name}</h3>
-        <h4>{resList.info.avgRating}</h4>
-        <p>{resList.info.cuisines}</p>
-        <p>{resList.info.address}</p>
+        <h3>{name}</h3>
+        <h4>{avgRating}</h4>
+        <p>{cuisines}</p>
+        <p>{address}</p>
       </div>
     </div>
   );
