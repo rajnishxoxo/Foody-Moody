@@ -40,12 +40,14 @@
   font-weight: 600;
 }
 
-.ul-element > li {
+.ul-element > a {
   border-bottom: 2px solid transparent; /* Initially transparent border */
   transition: border-color 0.3s;
+  text-decoration: none;
+  color: inherit;
 }
 
-.ul-element > li:hover {
+.ul-element > a:hover {
   border-bottom-color: orange; /* Change border color to orange on hover */
 }
 

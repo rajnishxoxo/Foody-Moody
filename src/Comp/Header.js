@@ -28,7 +28,7 @@ const Header = () => {
          <Link to="/home"> <li>Home</li></Link>
          <Link to="/about"> <li>About US</li></Link>
           <Link to='/contact'><li>Contact US</li></Link>
-          <li>Cart 🛒</li>
+          <Link to='/cart'><li>Cart 🛒</li></Link>
           <li>
             <button className="login-Btn" onClick={handleTextChange}>
               {text}

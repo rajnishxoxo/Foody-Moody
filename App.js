@@ -7,6 +7,8 @@ import { RouterProvider, createBrowserRouter,Outlet } from "react-router-dom";
 import Home from "./src/Routes/Home.js";
 import About from "./src/Routes/About.js";
 import Contact from "./src/Routes/Contact.js";
+import Cart from "./src/Routes/Cart.js";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const App = () => {
@@ -39,6 +41,10 @@ const appRoute = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "/cart",
+        element: <Cart/>,
+      }
     ],
   },
 ]);
