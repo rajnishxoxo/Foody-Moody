@@ -15,11 +15,13 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.10296183168158&lng=79.0430336818099&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const data = await json.json();
-    
+
     setListOfRestro(
       data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    setFilterList(data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilterList(
+      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   useEffect(() => {
@@ -31,16 +33,13 @@ const Body = () => {
   };
 
   const handleClick = () => {
-    let filterData = listOfRestro.filter((data)=>{
+    let filterData = listOfRestro.filter((data) => {
       return data.info.name.toLowerCase().includes(value.toLowerCase());
-    
-    })
-    setFilterList(filterData)
+    });
+    setFilterList(filterData);
   };
 
-  if(filterList==null) return <Shimmer/>
-
-  console.log(value);
+  if (filterList == null) return <Shimmer />;
 
   return (
     <>
