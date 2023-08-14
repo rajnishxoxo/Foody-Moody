@@ -8,6 +8,7 @@ import Home from "./src/Routes/Home.js";
 import About from "./src/Routes/About.js";
 import Contact from "./src/Routes/Contact.js";
 import Cart from "./src/Routes/Cart.js";
+import Error from "./src/Routes/Error.js";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -27,25 +28,31 @@ const appRoute = createBrowserRouter([
     children: [
       {
         path:'/',
-        element:<Body/>
+        element:<Body/>,
+    
       },
       {
         path: "/home",
         element: <Home />,
+        
       },
       {
         path: "/about",
         element: <About />,
+      
       },
       {
         path: "/contact",
         element: <Contact />,
+      
       },
       {
         path: "/cart",
         element: <Cart/>,
+     
       }
     ],
+    errorElement:<Error/>
   },
 ]);
 
