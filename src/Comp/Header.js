@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [text, setText] = useState("Login");
@@ -22,9 +23,9 @@ const Header = () => {
       </div>
       <div className="nav-container">
         <ul className="ul-element">
-          <li>Home</li>
-          <li>About US</li>
-          <li>Contact US</li>
+         <Link to="/home"> <li>Home</li></Link>
+         <Link to="/about"> <li>About US</li></Link>
+          <Link to='/contact'><li>Contact US</li></Link>
           <li>Cart 🛒</li>
           <li>
             <button className="login-Btn" onClick={handleTextChange}>
