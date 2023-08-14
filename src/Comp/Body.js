@@ -2,6 +2,7 @@ import restaurantList from "./MockData.js";
 import Card from "./Card.js";
 import Search from "./Search.js";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer.js";
 const Body = () => {
   const [listOfRestro, setListOfRestro] = useState(restaurantList);
 
@@ -38,6 +39,8 @@ const Body = () => {
     })
     setFilterList(filterData)
   };
+
+  if(filterList==null) return <Shimmer/>
 
   console.log(value);
 

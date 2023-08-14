@@ -165,3 +165,18 @@
   margin-top: 25px;
   margin-bottom: 20px;
 }
+
+.shimmer-Container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 200px;
+  background-color: #fefdfd;
+  border-radius: 5px;
+  box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 20px;
+}
