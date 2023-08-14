@@ -9,6 +9,7 @@ import About from "./src/Routes/About.js";
 import Contact from "./src/Routes/Contact.js";
 import Cart from "./src/Routes/Cart.js";
 import Error from "./src/Routes/Error.js";
+import RestroMenu from "./src/Routes/RestroMenu.js";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -50,6 +51,16 @@ const appRoute = createBrowserRouter([
         path: "/cart",
         element: <Cart/>,
      
+      },
+      {
+        path: "/cart",
+        element: <Cart/>,
+     
+      },
+      {
+        path:'/restro',
+        element:<RestroMenu/>
+
       }
     ],
     errorElement:<Error/>
