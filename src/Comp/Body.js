@@ -3,6 +3,7 @@ import Card from "./Card.js";
 import Search from "./Search.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
+import { Link } from "react-router-dom";
 const Body = () => {
   const [listOfRestro, setListOfRestro] = useState(restaurantList);
 
@@ -50,7 +51,11 @@ const Body = () => {
       />
       <div className="body-container">
         {filterList.map((data, index) => {
-          return <Card key={index} resList={data} handleClick={handleClick} />;
+          return (
+            <Link key={data.info.id} to={"/restro/" + data.info.id}>
+              <Card resList={data} handleClick={handleClick} />
+            </Link>
+          );
         })}
       </div>
     </>

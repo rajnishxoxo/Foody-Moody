@@ -34,7 +34,7 @@ const RestroMenu = () => {
     totalRatingsString,
   } = restroMenu?.cards[0]?.card.card.info;
   const { itemCards } =
-    restroMenu?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
+    restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
   return (
     <div>
