@@ -1,18 +1,58 @@
+import { useEffect, useState } from "react";
+import Shimmer from "../Comp/Shimmer";
+import { useParams } from "react-router-dom";
+import { menuAPI } from "../Constant";
+
+const RestroMenu = () => {
+  const [restroMenu, setRestroMenu] = useState(null);
+
+  const {resID} = useParams();
+
+  
+
+  const fetchMenu = async () => {
+    const data = await fetch(
+        menuAPI +resID
+    );
+    const newData = await data.json();
+    // let restroMenu =
+    //   newData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
+    //     .itemCards;
+
+    setRestroMenu(newData.data);
+  };
+
+  useEffect(() => {
+    fetchMenu();
+  }, []);
+
+  if(restroMenu===null)return <Shimmer/>;
+
+  const {name,cuisines,costForTwoMessage,avgRating,areaName,totalRatingsString} = restroMenu?.cards[0]?.card.card.info;
+  const{itemCards}= restroMenu?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
 
 
-const RestroMenu =()=>{
-    const fetchData =async()=>{
-        const json = await fetch('https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1045952162951&lng=79.00067690759897&restaurantId=79542&catalog_qa=undefined&submitAction=ENTER')
-        const data = await json.json()
-        console.log(  data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-            .itemCards)
-    }
-    fetchData();
-    return(
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>{name}</h1>
+      <h3>{cuisines.join(',')}</h3>
+      <h3>{costForTwoMessage}</h3>
+      <h3>{avgRating}</h3>
+
+
+<>
+<ul>
+    {itemCards.map((data) => {
+        console.log(data.card.info.name);
+        return <li>{data.card.info.name}</li>;
+    })}
+</ul>
+
+
+</>
+
+    </div>
+  );
+};
 
 export default RestroMenu;

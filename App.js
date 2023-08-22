@@ -52,7 +52,7 @@ const appRoute = createBrowserRouter([
      
       },
       {
-        path:'/restro',
+        path:'/restro/:resID',
         element:<RestroMenu/>
 
       }
