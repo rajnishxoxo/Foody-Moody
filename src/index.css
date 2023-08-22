@@ -63,6 +63,8 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+
+
 .card-img {
   /* border: 1px solid red; */
   width: 100%;
@@ -91,6 +93,7 @@
   width: 100%;
   text-align: center;
   margin-top: -5px;
+  text-decoration: none;
 }
 .rating {
   font-size: 26px;
@@ -136,6 +139,11 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-content: space-evenly;
+}
+
+.body-container >a{
+  text-decoration: none;
+  color: inherit;
 }
 
 /*search*/
