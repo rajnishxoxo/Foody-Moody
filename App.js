@@ -4,7 +4,6 @@ import Header from "./src/Comp/Header.js";
 import Body from "./src/Comp/Body.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { RouterProvider, createBrowserRouter,Outlet } from "react-router-dom";
-import Home from "./src/Routes/Home.js";
 import About from "./src/Routes/About.js";
 import Contact from "./src/Routes/Contact.js";
 import Cart from "./src/Routes/Cart.js";
@@ -31,11 +30,6 @@ const appRoute = createBrowserRouter([
         path:'/',
         element:<Body/>,
     
-      },
-      {
-        path: "/home",
-        element: <Home />,
-        
       },
       {
         path: "/about",
