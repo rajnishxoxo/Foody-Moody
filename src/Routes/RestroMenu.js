@@ -11,7 +11,6 @@ const RestroMenu = () => {
   const fetchMenu = async () => {
     const data = await fetch(Menu_API + resID);
     const newData = await data.json();
-    console.log(newData)
 
     setRestroMenu(newData.data);
   };
@@ -34,6 +33,12 @@ const RestroMenu = () => {
     restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
 
+  console.log(itemCards);
+
+  const deliverytime =
+    restroMenu?.cards[0]?.card?.card?.info?.sla?.deliveryTime;
+  console.log(deliverytime);
+
   return (
     <div>
       <div className="menu-container">
@@ -50,13 +55,22 @@ const RestroMenu = () => {
       </div>
 
       <div className="basic-info">
-        <p>{costForTwoMessage}</p>
+        <p className="deliveryTime">🌑{deliverytime} MINS</p>
+        <p className="costMessage"> {costForTwoMessage}</p>
       </div>
 
       <>
-        <ul>
+        <h3 className="menu-Heading">Menu</h3>
+        <ul className="menu">
           {itemCards.map((data) => {
-            return <li>{data.card.info.name}</li>;
+            return (
+              <div className="item-box">
+                <li className="menu-item">
+                {data.card.info.name}
+                {/* <button className="cart-Add">Add to Cart</button> */}
+              </li>
+              </div>
+            );
           })}
         </ul>
       </>
