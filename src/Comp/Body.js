@@ -49,6 +49,7 @@ const Body = () => {
   };
 
   const handleFilterDelivery = () => {
+    console.log(listOfRestro)
     const newList = listOfRestro.filter((data) => {
       return data.info.sla.deliveryTime < 20;
     });
