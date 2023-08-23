@@ -49,6 +49,12 @@ const Body = () => {
         value={value}
         handleClick={handleClick}
       />
+      {/*filter Top rated */}
+
+      <button>Filter Top Rated</button>
+
+
+
       <div className="body-container">
         {filterList.map((data, index) => {
           return (
