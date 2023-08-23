@@ -41,9 +41,17 @@ const Body = () => {
   };
 
   const handleFilter = () => {
-    console.log(listOfRestro);
     const newList = listOfRestro.filter((data) => {
       return data.info.avgRating > 4.0;
+    });
+
+    setFilterList(newList);
+  };
+
+  const handleFilterDelivery = () => {
+    const newList = listOfRestro.filter((data) => {
+      console.log(data.info.sla.deliveryTime);
+      return data.info.sla.deliveryTime < 20;
     });
 
     setFilterList(newList);
@@ -60,9 +68,15 @@ const Body = () => {
       />
       {/*filter Top rated */}
 
-      <button onClick={handleFilter} className="filter-btn">
-        Rating 4.0+
-      </button>
+      <div className="filtergrp">
+        <button onClick={handleFilter} className="filter-btn">
+          Rating 4.0+
+        </button>
+
+        <button onClick={handleFilterDelivery} className="filter-btn">
+          Faster Delivery
+        </button>
+      </div>
 
       <div className="body-container">
         {filterList.map((data, index) => {
