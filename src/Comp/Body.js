@@ -40,10 +40,14 @@ const Body = () => {
     setFilterList(filterData);
   };
 
-  const handleFilter = ()=>{
-   
-    
-  }
+  const handleFilter = () => {
+    console.log(listOfRestro);
+    const newList = listOfRestro.filter((data) => {
+      return data.info.avgRating > 4.0;
+    });
+
+    setFilterList(newList);
+  };
 
   if (filterList == null) return <Shimmer />;
 
@@ -56,9 +60,9 @@ const Body = () => {
       />
       {/*filter Top rated */}
 
-      <button onClick={handleFilter} className="filter-btn">Rating 4.0+</button>
-
-
+      <button onClick={handleFilter} className="filter-btn">
+        Rating 4.0+
+      </button>
 
       <div className="body-container">
         {filterList.map((data, index) => {
