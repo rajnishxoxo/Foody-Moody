@@ -41,7 +41,8 @@ const Body = () => {
   };
 
   const handleFilter = ()=>{
-    console.log('pressed filter')
+   
+    
   }
 
   if (filterList == null) return <Shimmer />;
