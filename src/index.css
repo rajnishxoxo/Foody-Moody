@@ -237,10 +237,59 @@
   cursor: pointer;
 }
 
-.filtergrp{
+.filtergrp {
   width: 50%;
-  
+
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.menu-container {
+  width: 70%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px dashed grey;
+  margin: 0 auto;
+}
+
+.restro-Name {
+  font-size: 1.43rem;
+  font-weight: 600;
+  color: #282c3f;
+  margin-bottom: 8px;
+}
+
+.restro-cuisine {
+  font-size: 0.93rem;
+  color: #7e808c;
+  height: calc(0.93rem + 2px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.restro-area {
+  font-size: 0.93rem;
+  color: #7e808c;
+}
+
+.rating-box {
+  width: 70px;
+  height: auto;
+}
+
+.rating {
+  color: #3d9b6d;
+  margin-top: 20px;
+  border-bottom: 1px solid #e9e9eb;
+  font-weight: 500;
+}
+.total-rating {
+  font-size: 11px;
+  color: #8b8d97;
+  font-weight: 600;
 }

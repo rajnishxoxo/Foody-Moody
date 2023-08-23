@@ -9,12 +9,9 @@ const RestroMenu = () => {
   const { resID } = useParams();
 
   const fetchMenu = async () => {
-    const data = await fetch(Menu_API+resID);
+    const data = await fetch(Menu_API + resID);
     const newData = await data.json();
-    console.log(newData);
-    // let restroMenu =
-    //   newData.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-    //     .itemCards;
+    console.log(newData)
 
     setRestroMenu(newData.data);
   };
@@ -34,19 +31,31 @@ const RestroMenu = () => {
     totalRatingsString,
   } = restroMenu?.cards[0]?.card.card.info;
   const { itemCards } =
-    restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+      ?.card;
 
   return (
     <div>
-      <h1>{name}</h1>
-      <h3>{cuisines.join(",")}</h3>
-      <h3>{costForTwoMessage}</h3>
-      <h3>{avgRating}</h3>
+      <div className="menu-container">
+        <div className="basic_info_div">
+          <p className="restro-Name">{name}</p>
+          <p className="restro-cuisine">{cuisines.join(",")}</p>
+          <p className="restro-area">{areaName}</p>
+        </div>
+
+        <div className="rating-box">
+          <p className="rating">{avgRating}☆</p>
+          <p className="total-rating">{totalRatingsString}</p>
+        </div>
+      </div>
+
+      <div className="basic-info">
+        <p>{costForTwoMessage}</p>
+      </div>
 
       <>
         <ul>
           {itemCards.map((data) => {
-            console.log(data.card.info.name);
             return <li>{data.card.info.name}</li>;
           })}
         </ul>
