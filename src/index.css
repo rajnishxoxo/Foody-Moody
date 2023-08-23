@@ -63,8 +63,6 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-
-
 .card-img {
   /* border: 1px solid red; */
   width: 100%;
@@ -141,7 +139,7 @@
   justify-content: space-evenly;
 }
 
-.body-container >a{
+.body-container > a {
   text-decoration: none;
   color: inherit;
 }
@@ -227,4 +225,14 @@
 
 .login-Btn:hover {
   box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
+
+.filter-btn {
+  width: auto;
+  border-radius: 18px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(226, 226, 231);
+  padding: 9px 12px;
+  font-size: 15px;
+  cursor: pointer;
 }

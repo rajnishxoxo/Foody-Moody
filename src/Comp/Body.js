@@ -40,6 +40,10 @@ const Body = () => {
     setFilterList(filterData);
   };
 
+  const handleFilter = ()=>{
+    console.log('pressed filter')
+  }
+
   if (filterList == null) return <Shimmer />;
 
   return (
@@ -51,7 +55,7 @@ const Body = () => {
       />
       {/*filter Top rated */}
 
-      <button>Filter Top Rated</button>
+      <button onClick={handleFilter} className="filter-btn">Rating 4.0+</button>
 
 
 
