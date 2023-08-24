@@ -18,10 +18,10 @@ const Body = () => {
     const data = await json.json();
 
     setListOfRestro(
-      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      data.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilterList(
-      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      data.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
