@@ -28,7 +28,7 @@ class Team extends React.Component {
     return (
       <div className="person-div">
         <img className="image" src={avatar_url} />
-        <h3>{name}</h3>
+        <h3 className="heading">{name}</h3>
         <a>{html_url}</a>
       </div>
     );
