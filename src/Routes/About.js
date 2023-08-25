@@ -1,5 +1,7 @@
 import React from "react";
 
+import Team from "../Comp/Team";
+
 class About extends React.Component {
   render() {
     return (
@@ -20,6 +22,7 @@ class About extends React.Component {
           delight.
         </p>
         <h2 className="heading-Mission">Meet the Team :</h2>
+        <Team/>
       </div>
     );
   }
