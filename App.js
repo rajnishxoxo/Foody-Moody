@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{lazy}from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/Comp/Header.js";
 import Body from "./src/Comp/Body.js";
@@ -9,6 +9,7 @@ import Contact from "./src/Routes/Contact.js";
 import Cart from "./src/Routes/Cart.js";
 import Error from "./src/Routes/Error.js";
 import RestroMenu from "./src/Routes/RestroMenu.js";
+import { lazy } from "react";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -20,6 +21,8 @@ const App = () => {
     </div>
   );
 };
+
+
 
 const appRoute = createBrowserRouter([
   {

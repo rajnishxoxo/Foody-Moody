@@ -21,6 +21,10 @@ const RestroMenu = () => {
     restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
 
+
+      if(itemCards==null)return<Shimmer/>
+
+
   console.log(itemCards);
 
   const deliverytime =
