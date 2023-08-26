@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus.js";
+import useListOfRestro from "../util/useListOfRestro.js";
 const Body = () => {
   const [listOfRestro, setListOfRestro] = useState(restaurantList);
 
-  const [filterList, setFilterList] = useState(restaurantList);
+  const filterList = useListOfRestro(restaurantList);
 
   const [value, setvalue] = useState("");
 
@@ -19,9 +20,6 @@ const Body = () => {
     const data = await json.json();
 
     setListOfRestro(
-      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilterList(
       data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
@@ -50,7 +48,7 @@ const Body = () => {
   };
 
   const handleFilterDelivery = () => {
-    console.log(listOfRestro)
+    console.log(listOfRestro);
     const newList = listOfRestro.filter((data) => {
       return data.info.sla.deliveryTime < 20;
     });
@@ -60,10 +58,12 @@ const Body = () => {
 
   const onlineMode = useOnlineStatus();
 
-  if(onlineMode===false){
-    return(
-      <h1>Looks Like You are Offline,Please Check Your Internet Connection!📴</h1>
-    )
+  if (onlineMode === false) {
+    return (
+      <h1>
+        Looks Like You are Offline,Please Check Your Internet Connection!📴
+      </h1>
+    );
   }
 
   if (filterList == null) return <Shimmer />;
