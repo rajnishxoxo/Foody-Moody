@@ -4,6 +4,7 @@ import Search from "./Search.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../util/useOnlineStatus.js";
 const Body = () => {
   const [listOfRestro, setListOfRestro] = useState(restaurantList);
 
@@ -56,6 +57,14 @@ const Body = () => {
 
     setFilterList(newList);
   };
+
+  const onlineMode = useOnlineStatus();
+
+  if(onlineMode===false){
+    return(
+      <h1>Looks Like You are Offline,Please Check Your Internet Connection!📴</h1>
+    )
+  }
 
   if (filterList == null) return <Shimmer />;
 

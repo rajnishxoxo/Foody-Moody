@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../util/useOnlineStatus";
 
 const Header = () => {
   const [text, setText] = useState("Login");
+
+  const onlineStatus = useOnlineStatus();
 
   const handleTextChange = () => {
     console.log(text);
@@ -25,6 +28,7 @@ const Header = () => {
       </div>
       <div className="nav-container">
         <ul className="ul-element">
+          <li>Online:{onlineStatus?"✅":"🔴"}</li>
          <Link > <li>Home</li></Link>
          <Link to="/about"> <li>About US</li></Link>
           <Link to='/contact'><li>Contact US</li></Link>
