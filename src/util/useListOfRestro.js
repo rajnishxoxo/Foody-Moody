@@ -1,8 +1,9 @@
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import restaurantList from "../Comp/MockData";
 
 const useListOfRestro = () => {
   const [filterList, setFilterList] = useState(restaurantList);
+  const [listOfRestro, setListOfRestro] = useState(restaurantList);
 
   useEffect(() => {
     fetchData();
@@ -16,9 +17,13 @@ const useListOfRestro = () => {
     setFilterList(
       data.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
+    setListOfRestro(
+      data.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
-  return filterList;
+  return filterList,listOfRestro;
 };
 
 export default useListOfRestro;

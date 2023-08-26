@@ -7,26 +7,9 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus.js";
 import useListOfRestro from "../util/useListOfRestro.js";
 const Body = () => {
-  const [listOfRestro, setListOfRestro] = useState(restaurantList);
-
+  const listOfRestro = useState(restaurantList);
   const filterList = useListOfRestro(restaurantList);
-
   const [value, setvalue] = useState("");
-
-  const fetchData = async () => {
-    const json = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.10296183168158&lng=79.0430336818099&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const data = await json.json();
-
-    setListOfRestro(
-      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const handleInputChange = (e) => {
     setvalue(e.target.value);
