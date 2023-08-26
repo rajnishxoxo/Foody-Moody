@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus.js";
 import useListOfRestro from "../util/useListOfRestro.js";
 const Body = () => {
-  const listOfRestro = useState(restaurantList);
+  const listOfRestro = useListOfRestro(restaurantList);
   const filterList = useListOfRestro(restaurantList);
   const [value, setvalue] = useState("");
 
