@@ -3,24 +3,9 @@ import { useParams } from "react-router-dom";
 import useRestrauntMenu from "../util/useRestrauntMenu";
 
 const RestroMenu = () => {
-  // const [restroMenu, setRestroMenu] = useState(null);
-
   const { resID } = useParams();
 
-  const restroMenu = useRestrauntMenu(resID)
-
-  // useEffect(() => {
-  //   fetchMenu();
-  // }, []);
-
-  // const fetchMenu = async () => {
-  //   const data = await fetch(Menu_API + resID);
-  //   const newData = await data.json();
-
-  //   setRestroMenu(newData.data);
-  // };
-
-
+  const restroMenu = useRestrauntMenu(resID);
 
   if (restroMenu === null) return <Shimmer />;
 
@@ -69,9 +54,9 @@ const RestroMenu = () => {
             return (
               <div className="item-box">
                 <li className="menu-item">
-                {data.card.info.name}
-                {/* <button className="cart-Add">Add to Cart</button> */}
-              </li>
+                  {data.card.info.name}
+                  {/* <button className="cart-Add">Add to Cart</button> */}
+                </li>
               </div>
             );
           })}
