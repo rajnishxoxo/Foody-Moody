@@ -7,9 +7,25 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus.js";
 import useListOfRestro from "../util/useListOfRestro.js";
 const Body = () => {
+  
+
   const listOfRestro = useListOfRestro(restaurantList);
-  const filterList = useListOfRestro(restaurantList);
+  const [filterList, setFilterList] = useState(restaurantList);
   const [value, setvalue] = useState("");
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const json = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.10296183168158&lng=79.0430336818099&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const data = await json.json();
+    setFilterList(
+      data.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
 
   const handleInputChange = (e) => {
     setvalue(e.target.value);
@@ -31,7 +47,6 @@ const Body = () => {
   };
 
   const handleFilterDelivery = () => {
-    console.log(listOfRestro);
     const newList = listOfRestro.filter((data) => {
       return data.info.sla.deliveryTime < 20;
     });
@@ -71,7 +86,7 @@ const Body = () => {
       </div>
 
       <div className="body-container">
-        {filterList.map((data, index) => {
+        {filterList.map((data) => {
           return (
             <Link key={data.info.id} to={"/restro/" + data.info.id}>
               <Card resList={data} handleClick={handleClick} />
