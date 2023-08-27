@@ -10,7 +10,6 @@ const Body = () => {
   
 
   const listOfRestro = useListOfRestro(restaurantList);
-  console.log(listOfRestro)
   const [filterList, setFilterList] = useState(restaurantList);
   const [value, setvalue] = useState("");
 

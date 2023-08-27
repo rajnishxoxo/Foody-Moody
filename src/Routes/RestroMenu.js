@@ -69,13 +69,13 @@ const RestroMenu = () => {
                         data.card.info.imageId
                       }
                     />
+                    <button className="add-to-Cart">Add+</button>
                   </div>
                 </li>
               </div>
             );
           })}
         </ul>
-        
       </>
     </div>
   );
