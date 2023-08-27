@@ -60,15 +60,19 @@ const RestroMenu = () => {
             return (
               <div className="item-box">
                 <li className="menu-item">
-                  {data.card.info.name} {"Rs-"} {data.card.info.price / 100}
+                  {data.card.info.name} {"Rs-"}{" "}
+                  {data.card.info.price / 100 || 250}
                   <div className="image-div">
                     <img
                       className="food-image"
                       src={
                         "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-                        data.card.info.imageId
+                        (data.card.info.imageId ||
+                          "e6d14e5dc8253b8ec8b743f33299c01c")
                       }
+                      alt="Food"
                     />
+
                     <button className="add-to-Cart">Add+</button>
                   </div>
                 </li>

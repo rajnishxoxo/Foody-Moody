@@ -408,7 +408,9 @@
   width: 96px !important;
   height: 36px !important;
   position: absolute;
-  left: 50;
+  left: 60;
+font-size: 15px;
+font-weight: 600;
   bottom: 8px;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
