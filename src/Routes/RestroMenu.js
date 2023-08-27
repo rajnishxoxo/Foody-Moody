@@ -21,15 +21,17 @@ const RestroMenu = () => {
     restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
 
+  // const extraMenu =
+  //   restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card;
 
-      if(itemCards==null)return<Shimmer/>
+  // const { card } = extraMenu;
 
+  // console.log(card.categories)
 
-  console.log(itemCards);
+  if (itemCards == null) return <Shimmer />;
 
   const deliverytime =
     restroMenu?.cards[0]?.card?.card?.info?.sla?.deliveryTime;
-  console.log(deliverytime);
 
   return (
     <div>
@@ -58,13 +60,22 @@ const RestroMenu = () => {
             return (
               <div className="item-box">
                 <li className="menu-item">
-                  {data.card.info.name}
-                  {/* <button className="cart-Add">Add to Cart</button> */}
+                  {data.card.info.name} {"Rs-"} {data.card.info.price / 100}
+                  <div className="image-div">
+                    <img
+                      className="food-image"
+                      src={
+                        "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+                        data.card.info.imageId
+                      }
+                    />
+                  </div>
                 </li>
               </div>
             );
           })}
         </ul>
+        
       </>
     </div>
   );

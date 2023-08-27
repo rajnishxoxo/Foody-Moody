@@ -314,6 +314,12 @@
   list-style-type: none;
 }
 .menu-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
   margin-right: 4px;
   font-size: 1.22rem;
   font-weight: 500;
@@ -337,7 +343,7 @@
 .item-box {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .about-us-Section {
@@ -379,4 +385,19 @@
   letter-spacing: -0.4px;
   color: rgba(2, 6, 12, 0.92);
   margin-bottom: 10px;
+}
+
+.image-div{
+  position: relative;
+    margin-left: 16px;
+    min-width: 118px;
+    height: 120px;
+    font-size: 0;
+}
+
+.food-image {
+  width: 118px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
 }
