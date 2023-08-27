@@ -17,7 +17,7 @@ const Header = () => {
     }
   };
   return (
-    <div className="main-container">
+    <div className="flex">
       <div className="img-container">
         <Link to='/'>
         <img
