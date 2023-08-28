@@ -22,7 +22,8 @@ const RestroMenu = () => {
       ?.card;
 
 
-  if (itemCards == null) return <Shimmer />;
+
+  if (itemCards == null) return <Shimmer/>
 
   const deliverytime =
     restroMenu?.cards[0]?.card?.card?.info?.sla?.deliveryTime;
