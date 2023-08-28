@@ -5,26 +5,31 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus.js";
-import useListOfRestro from "../util/useListOfRestro.js";
-const Body = () => {
-  
 
-  const listOfRestro = useListOfRestro(restaurantList);
+const Body = () => {
   const [filterList, setFilterList] = useState(restaurantList);
+  const [listOfRestro, setListOfRestro] = useState(restaurantList);
   const [value, setvalue] = useState("");
 
   useEffect(() => {
     fetchData();
   }, []);
 
+
   const fetchData = async () => {
     const json = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.10296183168158&lng=79.0430336818099&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+
     const data = await json.json();
     setFilterList(
       data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
+    setListOfRestro(
+      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+
   };
 
   const handleInputChange = (e) => {
@@ -48,7 +53,7 @@ const Body = () => {
 
   const handleFilterDelivery = () => {
     const newList = listOfRestro.filter((data) => {
-      return data.info.sla.deliveryTime < 30;
+      return data.info.sla.deliveryTime < 10;
     });
 
     setFilterList(newList);
@@ -68,19 +73,25 @@ const Body = () => {
 
   return (
     <>
-      <Search 
+      <Search
         handleInputChange={handleInputChange}
         value={value}
         handleClick={handleClick}
       />
       {/*filter Top rated */}
 
-      <div className="filtergrp">
-        <button onClick={handleFilter} className="filter-btn">
+      <div className="w-1/2 flex flex-row justify-around  mx-auto my-3.5">
+        <button
+          onClick={handleFilter}
+          className="w-auto rounded-2xl cursor-pointer text-sm px-3 py-3 bg-amber-400"
+        >
           Rating 4.0+
         </button>
 
-        <button onClick={handleFilterDelivery} className="filter-btn">
+        <button
+          onClick={handleFilterDelivery}
+          className="w-auto rounded-2xl cursor-pointer text-sm px-3 py-3 bg-amber-400"
+        >
           Faster Delivery
         </button>
       </div>
