@@ -21,12 +21,6 @@ const RestroMenu = () => {
     restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
 
-  // const extraMenu =
-  //   restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card;
-
-  // const { card } = extraMenu;
-
-  // console.log(card.categories)
 
   if (itemCards == null) return <Shimmer />;
 
@@ -35,16 +29,16 @@ const RestroMenu = () => {
 
   return (
     <div>
-      <div className="menu-container">
-        <div className="basic_info_div">
-          <p className="restro-Name">{name}</p>
-          <p className="restro-cuisine">{cuisines.join(",")}</p>
-          <p className="restro-area">{areaName}</p>
+      <div className="w-3/4 mt-20 flex flex-row justify-between border-b border-dashed border-gray-400 mx-auto my-auto items-center">
+        <div className="flex flex-col">
+          <p className="text-lg font-semibold text-blue-800 mb-2">{name}</p>
+          <p className="text-xs text-gray-600 h-[calc(0.93rem + 2px)] overflow-hidden whitespace-nowrap truncate mb-1">{cuisines.join(",")}</p>
+          <p className="text-xs text-gray-600">{areaName}</p>
         </div>
 
-        <div className="rating-box">
-          <p className="rating">{avgRating}☆</p>
-          <p className="total-rating">{totalRatingsString}</p>
+        <div className="w-70 h-auto flex flex-col items-center mb-4">
+          <p className="text-green-600 mt-20 border-b border-solid border-gray-300 font-medium">{avgRating}☆</p>
+          <p className="text-xs text-gray-500 font-semibold">{totalRatingsString}</p>
         </div>
       </div>
 

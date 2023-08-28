@@ -53,7 +53,7 @@ const Body = () => {
 
   const handleFilterDelivery = () => {
     const newList = listOfRestro.filter((data) => {
-      return data.info.sla.deliveryTime < 10;
+      return data.info.sla.deliveryTime < 30;
     });
 
     setFilterList(newList);
@@ -96,8 +96,9 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="body-container">
+      <div className="w-full  mx-auto ml-16 grid grid-cols-3 gap-20 justify-evenly ">
         {filterList.map((data) => {
+          console.log(data)
           return (
             <Link key={data.info.id} to={"/restro/" + data.info.id}>
               <Card resList={data} handleClick={handleClick} />
