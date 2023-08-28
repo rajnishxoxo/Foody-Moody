@@ -49,7 +49,7 @@ const RestroMenu = () => {
 
       <>
         <h3 className="w-20 mt-10 text-6xl mx-auto">Menu</h3>
-        <ul className="list-none">
+        <ul className="flex justify-between items-center flex-col">
           {itemCards.map((data) => {
             return (
               <div className="w-full flex flex-row items-center">

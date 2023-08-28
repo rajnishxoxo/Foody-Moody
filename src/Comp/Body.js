@@ -15,7 +15,6 @@ const Body = () => {
     fetchData();
   }, []);
 
-
   const fetchData = async () => {
     const json = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.10296183168158&lng=79.0430336818099&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -29,7 +28,6 @@ const Body = () => {
     setListOfRestro(
       data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-
   };
 
   const handleInputChange = (e) => {
@@ -58,6 +56,18 @@ const Body = () => {
 
     setFilterList(newList);
   };
+
+  
+  const handleVeg = ()=>{
+    const vegOption = filterList.filter((data) => {
+      if (data.info && data.info.veg === true) {
+        return data.info; // Assigning data.info to the variable
+      }
+    });
+
+    setFilterList(vegOption)
+  }
+
 
   const onlineMode = useOnlineStatus();
 
@@ -94,11 +104,17 @@ const Body = () => {
         >
           Faster Delivery
         </button>
+
+        <button
+          onClick={handleVeg}
+          className="w-auto rounded-2xl cursor-pointer text-sm px-3 py-3 bg-amber-400"
+        >
+          Veg Only
+        </button>
       </div>
 
       <div className="w-full  mx-auto ml-16 grid grid-cols-3 gap-20 justify-evenly ">
         {filterList.map((data) => {
-          console.log(data)
           return (
             <Link key={data.info.id} to={"/restro/" + data.info.id}>
               <Card resList={data} handleClick={handleClick} />

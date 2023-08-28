@@ -1,6 +1,6 @@
 const Card = (props) => {
   const resList = props.resList;
-  console.log(resList)
+
   const { name, avgRating, locality, areaName, cuisines, cloudinaryImageId } =
     resList.info;
 
