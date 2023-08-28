@@ -42,23 +42,23 @@ const RestroMenu = () => {
         </div>
       </div>
 
-      <div className="basic-info">
-        <p className="deliveryTime">🌑{deliverytime} MINS</p>
-        <p className="costMessage"> {costForTwoMessage}</p>
+      <div className="w-1/5 mt-20 flex flex-row justify-evenly items-center border-b border-dashed border-gray-400 mx-auto">
+        <p className="text-lg font-bold">🌑{deliverytime} MINS</p>
+        <p className="text-lg font-bold"> {costForTwoMessage}</p>
       </div>
 
       <>
-        <h3 className="menu-Heading">Menu</h3>
-        <ul className="menu">
+        <h3 className="w-20 mt-10 text-6xl mx-auto">Menu</h3>
+        <ul className="list-none">
           {itemCards.map((data) => {
             return (
-              <div className="item-box">
-                <li className="menu-item">
+              <div className="w-full flex flex-row">
+                <li className="w-full flex flex-row justify-around items-center mr-4 text-lg font-medium text-gray-700 break-all my-4">
                   {data.card.info.name} {"Rs-"}{" "}
                   {data.card.info.price / 100 || 250}
-                  <div className="image-div">
+                  <div className="flex justify-between relative ml-16 min-w-[118px] h-120">
                     <img
-                      className="food-image"
+                      className="relative w-28 h-24  object-cover rounded-6 -z-10"
                       src={
                         "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
                         (data.card.info.imageId ||
@@ -67,7 +67,7 @@ const RestroMenu = () => {
                       alt="Food"
                     />
 
-                    <button className="add-to-Cart">Add+</button>
+                    <button className="absolute bottom-0 left-0 w-28 mt-10  rounded-lg text-center text-red-300 border-none p-2 cursor-pointer bg-green-600 ">Add+</button>
                   </div>
                 </li>
               </div>
