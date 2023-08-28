@@ -17,7 +17,7 @@ const Header = () => {
     }
   };
   return (
-    <div className="flex  flex-row justify-between  items-center shadow-lg  h-30 max-w-1200px mx-auto h-80px bg-#fff min-w-1200px ">
+    <div className="flex  flex-row justify-between  items-center shadow-lg  h-30 max-w-1200px mx-auto h-80px bg-#fff item-center  min-w-1200px ">
       <div className="w-1/5">
         <Link to='/'>
         <img
