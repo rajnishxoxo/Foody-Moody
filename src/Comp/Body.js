@@ -68,7 +68,7 @@ const Body = () => {
 
   return (
     <>
-      <Search
+      <Search 
         handleInputChange={handleInputChange}
         value={value}
         handleClick={handleClick}

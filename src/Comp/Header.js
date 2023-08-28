@@ -17,7 +17,7 @@ const Header = () => {
     }
   };
   return (
-    <div className="flex  flex-row justify-between  items-center shadow-lg  h-30 max-w-1200px mx-auto h-80px bg-#fff item-center  min-w-1200px ">
+    <div className="flex  flex-row justify-between  items-center shadow-lg  h-30 max-w-1200px mx-auto h-80px bg-#fff item-center   min-w-1200px ">
       <div className="w-1/5">
         <Link to='/'>
         <img
@@ -27,12 +27,12 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex w-2/4 p-0.625">
-        <ul className="flex flex-row list-none w-full justify-evenly items-center	text-xl font-semibold cursor-pointer">
+        <ul className="flex flex-row list-none w-full justify-evenly items-center	text-xl font-medium	 cursor-pointer">
           <li>{onlineStatus?"Online:✅":"Offline:🔴"}</li>
-         <Link > <li>Home</li></Link>
-         <Link to="/about"> <li>About US</li></Link>
-          <Link to='/contact'><li>Contact US</li></Link>
-          <Link to='/cart'><li>Cart 🛒</li></Link>
+         <Link > <li className="border-b-2 border-transparent transition border-color-300 text-decoration-none hover:border-orange-500 text-decoration-none text-current">Home</li></Link>
+         <Link to="/about"> <li className="border-b-2 border-transparent transition border-color-300 text-decoration-none  hover:border-orange-500 text-decoration-none text-current">About US</li></Link>
+          <Link to='/contact'><li className="border-b-2 border-transparent transition border-color-300 text-decoration-none hover:border-orange-500 text-decoration-none text-current">Contact US</li></Link>
+          <Link to='/cart'><li className="border-b-2 border-transparent transition border-color-300 text-decoration-none hover:border-orange-500 text-decoration-none text-current">Cart 🛒</li></Link>
           <li>
             <button className="login-Btn" onClick={handleTextChange}>
               {text}
