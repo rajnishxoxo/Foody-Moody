@@ -26,10 +26,10 @@ class Team extends React.Component {
   render() {
     const { name, location, avatar_url, html_url } = this.state.userInfo;
     return (
-      <div className="person-div">
-        <img className="image" src={avatar_url} />
-        <h3 className="heading">{name}</h3>
-        <a>{html_url}</a>
+      <div className="w-70 mx-auto h-auto">
+        <img className="w-40 h-[20%] rounded-full" src={avatar_url} />
+        <h3 className="text-xl leading-7 tracking-tighter text-opacity-92 text-blue-900 mb-4">{name}</h3>
+        <a className="text-l">{html_url}</a>
       </div>
     );
   }

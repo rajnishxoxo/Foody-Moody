@@ -34,7 +34,7 @@ const Header = () => {
           <Link to='/contact'><li className="border-b-2 border-transparent transition border-color-300 text-decoration-none hover:border-orange-500 text-decoration-none text-current">Contact US</li></Link>
           <Link to='/cart'><li className="border-b-2 border-transparent transition border-color-300 text-decoration-none hover:border-orange-500 text-decoration-none text-current">Cart 🛒</li></Link>
           <li>
-            <button className="login-Btn" onClick={handleTextChange}>
+            <button className="bg-gradient-to-r from-orange-400 to-red-600 rounded-md shadow-md text-white cursor-pointer inline-block font-inter h-10 leading-10 px-5 py-0 outline-none transition duration-200 border-none hover:shadow-lg" onClick={handleTextChange}>
               {text}
             </button>
           </li>

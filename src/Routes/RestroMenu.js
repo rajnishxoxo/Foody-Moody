@@ -52,7 +52,7 @@ const RestroMenu = () => {
         <ul className="list-none">
           {itemCards.map((data) => {
             return (
-              <div className="w-full flex flex-row">
+              <div className="w-full flex flex-row items-center">
                 <li className="w-full flex flex-row justify-around items-center mr-4 text-lg font-medium text-gray-700 break-all my-4">
                   {data.card.info.name} {"Rs-"}{" "}
                   {data.card.info.price / 100 || 250}
