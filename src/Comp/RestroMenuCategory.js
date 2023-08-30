@@ -1,16 +1,9 @@
+const RestroMenuCategory = (data) => {
+  const { title, itemCards } = data.data;
 
-const RestroMenuCategory =(data)=>{
-    console.log(data)
+  console.log(title, ">", itemCards);
 
-    const {title} = data.data
-
-    console.log(title)
-    
-    return(
-        <div>
-            {/* <h1>{title}</h1> */}
-        </div>
-    )
-}
+  return <div></div>;
+};
 
 export default RestroMenuCategory;
