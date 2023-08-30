@@ -4,7 +4,6 @@ const Card = (props) => {
   const { name, avgRating, locality, areaName, cuisines, cloudinaryImageId } =
     resList.info;
 
-  // console.log(name, avgRating, address, cuisines, cloudinaryImageId);
 
   return (
     <div className="flex flex-col  justify-between cursor-pointer w-72 shadow-md h-auto">
@@ -26,5 +25,18 @@ const Card = (props) => {
     </div>
   );
 };
+
+//High order function that will tell if the restro is open or not.
+
+export const restroIsOpen = (Card)=>{
+  return (props)=>{
+    return(
+      <>
+      <label className="absolute text-white bg-orange-600 w-14 text-center rounded">Open</label>
+      <Card {...props}/>
+      </>
+    )
+  }
+}
 
 export default Card;

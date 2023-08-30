@@ -1,5 +1,5 @@
 import restaurantList from "./MockData.js";
-import Card from "./Card.js";
+import Card ,{restroIsOpen} from "./Card.js";
 import Search from "./Search.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
@@ -15,6 +15,11 @@ const Body = () => {
     fetchData();
   }, []);
 
+  const RestroisOpen = restroIsOpen(Card);
+
+  console.log(RestroisOpen)
+
+
   const fetchData = async () => {
     const json = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.10296183168158&lng=79.0430336818099&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -22,13 +27,15 @@ const Body = () => {
 
     const data = await json.json();
     setFilterList(
-      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      data.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
     setListOfRestro(
-      data.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      data.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  console.log(listOfRestro)
 
   const handleInputChange = (e) => {
     setvalue(e.target.value);
@@ -117,7 +124,9 @@ const Body = () => {
         {filterList.map((data) => {
           return (
             <Link key={data.info.id} to={"/restro/" + data.info.id}>
-              <Card resList={data} handleClick={handleClick} />
+            {data.info.isOpen?<RestroisOpen resList={data} handleClick={handleClick} />:<Card resList={data} handleClick={handleClick} />}
+
+              {/* <Card resList={data} handleClick={handleClick} /> */}
             </Link>
           );
         })}
