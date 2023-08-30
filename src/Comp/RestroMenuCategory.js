@@ -1,8 +1,8 @@
 
-const RestroMenuCategory =(props)=>{
-    console.log(props)
+const RestroMenuCategory =(data)=>{
+    console.log(data)
 
-    const {title} = props.data
+    const {title} = data.data
 
     console.log(title)
     
