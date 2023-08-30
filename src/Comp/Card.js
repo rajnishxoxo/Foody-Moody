@@ -32,7 +32,7 @@ export const restroIsOpen = (Card)=>{
   return (props)=>{
     return(
       <>
-      <label className="absolute text-white bg-orange-600 w-14 text-center rounded">Open</label>
+      <label className="absolute text-white bg-orange-600 w-14 text-center rounded  p-1">Open</label>
       <Card {...props}/>
       </>
     )

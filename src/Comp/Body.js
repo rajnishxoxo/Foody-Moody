@@ -35,7 +35,6 @@ const Body = () => {
     );
   };
 
-  console.log(listOfRestro)
 
   const handleInputChange = (e) => {
     setvalue(e.target.value);

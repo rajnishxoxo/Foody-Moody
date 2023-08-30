@@ -2,6 +2,8 @@ import Shimmer from "../Comp/Shimmer";
 import { useParams } from "react-router-dom";
 import useRestrauntMenu from "../util/useRestrauntMenu";
 
+import RestroMenuCategory from '../Comp/RestroMenuCategory'
+
 const RestroMenu = () => {
   const { resID } = useParams();
 
@@ -20,6 +22,19 @@ const RestroMenu = () => {
   const { itemCards } =
     restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
+
+  // console.log(restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+
+  const menu = restroMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+
+
+
+  const category = menu.filter((data) => {
+    return data.card?.card?.["@type"] =="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  });
+
+  
+
 
   if (itemCards == null) return <Shimmer />;
 
@@ -54,33 +69,12 @@ const RestroMenu = () => {
 
       <>
         <h3 className="w-20 mt-10 text-6xl mx-auto">Menu</h3>
-        <ul className="flex justify-between items-center flex-col">
-          {itemCards.map((data) => {
-            return (
-              <div className="w-full flex flex-row items-center">
-                <li className="w-full flex flex-row justify-around items-center mr-4 text-lg font-medium text-gray-700 break-all my-4">
-                  {data.card.info.name} {"Rs-"}{" "}
-                  {data.card.info.price / 100 || 250}
-                  <div className="flex justify-between relative ml-16 min-w-[118px] h-120">
-                    <img
-                      className="relative w-28 h-24  object-cover rounded-6 -z-10"
-                      src={
-                        "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-                        (data.card.info.imageId ||
-                          "e6d14e5dc8253b8ec8b743f33299c01c")
-                      }
-                      alt="Food"
-                    />
-
-                    <button className="absolute bottom-0 left-0 w-28 mt-10  rounded-lg text-center text-red-300 border-none p-2 cursor-pointer bg-green-600 ">
-                      Add+
-                    </button>
-                  </div>
-                </li>
-              </div>
-            );
-          })}
-        </ul>
+        {/* for each category we have to build accordian */}
+        {
+          category.map((category)=>{
+            return <RestroMenuCategory data={category.card.card}/>
+          })
+        }
       </>
     </div>
   );
