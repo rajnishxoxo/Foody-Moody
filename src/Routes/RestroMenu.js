@@ -1,6 +1,7 @@
 import Shimmer from "../Comp/Shimmer";
 import { useParams } from "react-router-dom";
 import useRestrauntMenu from "../util/useRestrauntMenu";
+import { useState } from "react";
 
 import RestroMenuCategory from '../Comp/RestroMenuCategory'
 
@@ -9,7 +10,14 @@ const RestroMenu = () => {
 
   const restroMenu = useRestrauntMenu(resID);
 
+  
+
   if (restroMenu === null) return <Shimmer />;
+
+  
+
+
+ 
 
   const {
     name,
@@ -71,8 +79,9 @@ const RestroMenu = () => {
         <h3 className="w-20 mt-10 text-6xl mx-auto">Menu</h3>
         {/* for each category we have to build accordian */}
         {
-          category.map((category)=>{
-            return <RestroMenuCategory key={category.card.card.id} data={category.card.card}/>
+          category.map((category,index)=>{
+    
+            return <RestroMenuCategory key={category.card.card.title} data={category.card.card}/>
           })
         }
       </>
