@@ -72,7 +72,7 @@ const RestroMenu = () => {
         {/* for each category we have to build accordian */}
         {
           category.map((category)=>{
-            return <RestroMenuCategory data={category.card.card}/>
+            return <RestroMenuCategory key={category.card.card.id} data={category.card.card}/>
           })
         }
       </>

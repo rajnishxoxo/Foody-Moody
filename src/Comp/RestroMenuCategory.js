@@ -1,10 +1,19 @@
+import { useState } from "react";
+
 const RestroMenuCategory = (data) => {
   const { title, itemCards } = data.data;
 
   const listItem = itemCards;
 
+  const[showItem , setShowItem] = useState(false)
+
+
   const handleClick = ()=>{
-    console.log('hey')
+    if(showItem==true){
+      setShowItem(false)
+    }else{
+      setShowItem(true)
+    }
   }
 
   return (
@@ -17,7 +26,8 @@ const RestroMenuCategory = (data) => {
       </div>
 
       {
-        <div>
+        showItem&&
+        <div> 
           <div>
             {listItem.map((data) => {
               const { name, description, price, imageId } = data.card.info;
