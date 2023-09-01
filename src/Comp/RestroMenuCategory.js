@@ -1,4 +1,6 @@
 import { useState } from "react";
+import CartContext from "../util/CartContext"
+import { useContext } from "react"
 
 const RestroMenuCategory = ({ data}) => {
 
@@ -76,7 +78,7 @@ const RestroMenuCategory = ({ data}) => {
                       />
                     )}
                     <div className="absolute ">
-                      <button className="w-14 left-1/2 bottom-8 transform -translate-x-3/2  -translate-y-7/2 z-10  p-2 bg-gray-100 shadow-lg  text-green-700 h-full cursor-pointer rounded ">
+                      <button className="w-14 left-1/2 bottom-8 transform -translate-x-3/2  -translate-y-7/2 z-10  p-2 bg-gray-100 shadow-lg  text-green-700 h-full cursor-pointer rounded " onClick={handleCart}>
                         Add+
                       </button>
                     </div>
