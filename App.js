@@ -24,7 +24,7 @@ const App = () => {
     //Api called.
 
     const data = {
-      name: "elon musk",
+      name: "Rajnish",
     };
     setUserName(data.name);
   }, []);
