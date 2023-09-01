@@ -17,8 +17,6 @@ const Body = () => {
 
   const RestroisOpen = restroIsOpen(Card);
 
-  console.log(RestroisOpen)
-
 
   const fetchData = async () => {
     const json = await fetch(

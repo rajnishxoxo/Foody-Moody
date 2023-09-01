@@ -2,13 +2,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus";
 
+import UserContext from "../util/UserContext";
+
+import { useContext } from "react";
+
+
 const Header = () => {
   const [text, setText] = useState("Login");
 
   const onlineStatus = useOnlineStatus();
 
   const handleTextChange = () => {
-    console.log(text);
+   
     if (text == "Login") {
       setText("Logout");
     }
@@ -16,6 +21,9 @@ const Header = () => {
       setText("Login");
     }
   };
+
+  const {currentUser} = useContext(UserContext);
+
   return (
     <div className="flex  flex-row justify-between  items-center shadow-lg  h-30 max-w-1200px mx-auto h-80px bg-#fff item-center   min-w-1200px ">
       <div className="w-1/5">
@@ -38,6 +46,7 @@ const Header = () => {
               {text}
             </button>
           </li>
+          <li>{currentUser}</li>
         </ul>
       </div>
     </div>
