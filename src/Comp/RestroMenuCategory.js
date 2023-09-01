@@ -8,6 +8,8 @@ const RestroMenuCategory = ({ data}) => {
 
   const[showItem , setShowItem] = useState(false)
 
+
+
   const handleClick = ()=>{
     if(showItem==true){
       setShowItem(false)
@@ -19,6 +21,9 @@ const RestroMenuCategory = ({ data}) => {
   const listItem = itemCards;
 
   return (
+    
+
+    
     <div className="w-1/2 bg-gray-50 text-center  shadow-lg p-4 mx-auto my-4">
       <div className="flex flex-row justify-between cursor-pointer " onClick={handleClick}>
         <span>
@@ -78,7 +83,7 @@ const RestroMenuCategory = ({ data}) => {
                       />
                     )}
                     <div className="absolute ">
-                      <button className="w-14 left-1/2 bottom-8 transform -translate-x-3/2  -translate-y-7/2 z-10  p-2 bg-gray-100 shadow-lg  text-green-700 h-full cursor-pointer rounded " onClick={handleCart}>
+                      <button className="w-14 left-1/2 bottom-8 transform -translate-x-3/2  -translate-y-7/2 z-10  p-2 bg-gray-100 shadow-lg  text-green-700 h-full cursor-pointer rounded ">
                         Add+
                       </button>
                     </div>

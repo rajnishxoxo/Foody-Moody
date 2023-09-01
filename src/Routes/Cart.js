@@ -8,9 +8,11 @@ const Cart =()=>{
     const data = useContext(CartContext)
 
     return(
+        <CartContext.Provider>
         <div>
             <h1 className=" text-lg mx-auto">total item - {cartTotal}</h1>
         </div>
+        </CartContext.Provider>
     )
 }
 
