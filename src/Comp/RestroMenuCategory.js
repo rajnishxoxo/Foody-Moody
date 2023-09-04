@@ -25,8 +25,6 @@ const RestroMenuCategory = ({ data }) => {
 
   const cart = useSelector((store)=>store.cart.item)
 
-  console.log(cart)
-
   const listItem = itemCards;
 
   return (
