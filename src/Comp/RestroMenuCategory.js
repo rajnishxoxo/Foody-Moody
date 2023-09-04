@@ -1,37 +1,47 @@
 import { useState } from "react";
 
+import { useDispatch , useSelector } from "react-redux";
 
-const RestroMenuCategory = ({ data}) => {
+import { addItem } from "../util/cartSlice";
 
+const RestroMenuCategory = ({ data }) => {
   const { title, itemCards } = data;
 
-  const[showItem , setShowItem] = useState(false)
+  const [showItem, setShowItem] = useState(false);
 
-
-
-  const handleClick = ()=>{
-    if(showItem==true){
-      setShowItem(false)
-    }else{
-      setShowItem(true)
+  const handleClick = () => {
+    if (showItem == true) {
+      setShowItem(false);
+    } else {
+      setShowItem(true);
     }
-  }
+  };
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = (data) => {
+    dispatch(addItem(data));
+  };
+
+  const cart = useSelector((store)=>store.cart.item)
+
+  console.log(cart)
 
   const listItem = itemCards;
 
   return (
-    
-
-    
     <div className="w-1/2 bg-gray-50 text-center  shadow-lg p-4 mx-auto my-4">
-      <div className="flex flex-row justify-between cursor-pointer " onClick={handleClick}>
+      <div
+        className="flex flex-row justify-between cursor-pointer "
+        onClick={handleClick}
+      >
         <span>
           {title} -({itemCards.length})
         </span>
         <span>⬇️</span>
       </div>
 
-      {(showItem&&
+      {showItem && (
         <div>
           <div>
             {listItem.map((data) => {
@@ -82,7 +92,12 @@ const RestroMenuCategory = ({ data}) => {
                       />
                     )}
                     <div className="absolute ">
-                      <button className="w-14 left-1/2 bottom-8 transform -translate-x-3/2  -translate-y-7/2 z-10  p-2 bg-gray-100 shadow-lg  text-green-700 h-full cursor-pointer rounded ">
+                      <button
+                        className="w-14 left-1/2 bottom-8 transform -translate-x-3/2  -translate-y-7/2 z-10  p-2 bg-gray-100 shadow-lg  text-green-700 h-full cursor-pointer rounded "
+                        onClick={() => {
+                          handleAddItem(data);
+                        }}
+                      >
                         Add+
                       </button>
                     </div>

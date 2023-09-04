@@ -13,6 +13,10 @@ import { lazy } from "react";
 import UserContext from "./src/util/UserContext.js";
 import { useState, useEffect } from "react";
 
+import { Provider } from "react-redux";
+
+import appStore from "./src/util/appStore.js";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const App = () => {
@@ -32,12 +36,14 @@ const App = () => {
   
 
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{ currentUser:userName || "Default" }}>
       <div className="main-div">
         <Header />
         <Outlet />
       </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 
