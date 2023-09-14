@@ -13,7 +13,7 @@ const Header = () => {
 
   const cartItem = useSelector((store)=>store.cart.item)
 
-  console.log(cartItem);
+
 
 
   const onlineStatus = useOnlineStatus();
