@@ -23,7 +23,7 @@ const Cart = () => {
 
         console.log(name, description, price);
         return (
-          <>
+          <div className="flex flex-row  items-center">
             <div className="flex flex-row w-1/2 m-4">
               <div>
                 <h3 className=" mr-3 text-1.22 text-left font-medium text-gray-700 break-words">
@@ -60,7 +60,12 @@ const Cart = () => {
                 )}
               </div>
             </div>
-          </>
+            <div>
+              <button>
+                +
+              </button>
+            </div>
+          </div>
         );
       })}
 
