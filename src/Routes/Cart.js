@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import RestroMenuCategory from "../Comp/RestroMenuCategory";
-import { clearCart } from "../util/cartSlice";
+import { addItem, clearCart } from "../util/cartSlice";
 
 const Cart = () => {
   const cartItem = useSelector((store) => {
@@ -9,10 +9,8 @@ const Cart = () => {
 
   const itemCounts = {};
 
-  // trying to count how many time each item is present..
-
   cartItem.map((data) => {
-    const { id } = data.card.info;
+    const { id } = data?.card?.info;
 
     if (itemCounts[id]) {
       itemCounts[id]++;
@@ -21,21 +19,16 @@ const Cart = () => {
     }
   });
 
-  let uniqueItemsWithCounts = Object.keys(itemCounts).map((id) => ({
-    id,
-    count: itemCounts[id],
-  }));
+  const uniqueItemsWithCounts = Object.keys(itemCounts).map((itemId) => {
+    const firstOccurrence = cartItem.find(
+      (item) => item.card.info.id === itemId
+    );
 
-
-  // for (const key in itemCounts) {
-  //   const value = itemCounts[key];
-  //   // console.log(value);
-  // }
-
-  // const totalUniqueItems = Object.keys(itemCounts).length;
-
-  // console.log("Total Unique Items:", totalUniqueItems);
-  // console.log("Item Counts:", itemCounts);
+    return {
+      item: firstOccurrence,
+      count: itemCounts[itemId],
+    };
+  });
 
   const dispatch = useDispatch();
 
@@ -43,13 +36,17 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
-  console.log(cartItem)
+  const handleAdd = (data)=>{
+    dispatch(addItem(data.item))
+  }
 
   return (
     <div className="text-center m-4 p-4">
       <h1 className="font-bold text-2xl">Cart</h1>
-      {cartItem.map((data) => {
-        const { name, description, price, imageId, id } = data.card.info;
+      {uniqueItemsWithCounts.map((data) => {
+        const { name, description, price, imageId, id } = data.item.card.info;
+
+        const { count } = data;
 
         // trying to count how many time each item is present..
 
@@ -66,7 +63,9 @@ const Cart = () => {
                   </p>
                 </div>
                 <div className="mt-2 text-left leading-5 text-opacity-70 text-base text-gray-500">
-                  {description?description.slice(0, 20): "New things to try..."}
+                  {description
+                    ? description.slice(0, 20)
+                    : "New things to try..."}
                 </div>
               </div>
               <div className="ml-4">
@@ -86,11 +85,17 @@ const Cart = () => {
               </div>
             </div>
             <div className="flex items-center">
-              <button className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold mr-2">
+              <button className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold m-2" onClick={()=>{
+                handleAdd(data);
+              }}>
                 +
               </button>
 
-              <button className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold">
+              <div className="text-center font-bold text-xl m-auto">
+                {count}
+              </div>
+
+              <button className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold m-2">
                 -
               </button>
             </div>
