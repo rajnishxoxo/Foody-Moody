@@ -7,22 +7,51 @@ const Cart = () => {
     return store.cart.item;
   });
 
+  const itemCounts = {};
+
+  // trying to count how many time each item is present..
+
+  cartItem.map((data) => {
+    const { id } = data.card.info;
+
+    if (itemCounts[id]) {
+      itemCounts[id]++;
+    } else {
+      itemCounts[id] = 1;
+    }
+  });
+
+  let uniqueItemsWithCounts = Object.keys(itemCounts).map((id) => ({
+    id,
+    count: itemCounts[id],
+  }));
+
+
+  // for (const key in itemCounts) {
+  //   const value = itemCounts[key];
+  //   // console.log(value);
+  // }
+
+  // const totalUniqueItems = Object.keys(itemCounts).length;
+
+  // console.log("Total Unique Items:", totalUniqueItems);
+  // console.log("Item Counts:", itemCounts);
+
   const dispatch = useDispatch();
 
   const handleclearCart = () => {
     dispatch(clearCart());
   };
 
+  console.log(cartItem)
+
   return (
     <div className="text-center m-4 p-4">
       <h1 className="font-bold text-2xl">Cart</h1>
       {cartItem.map((data) => {
-        const { name, description, price, imageId } = data.card.info;
+        const { name, description, price, imageId, id } = data.card.info;
 
-        const shortDescription = description.slice(0,20);
-
-        console.log(shortDescription)
-        
+        // trying to count how many time each item is present..
 
         return (
           <div className="flex items-center justify-between border border-gray-300 p-4 mb-4">
@@ -37,7 +66,7 @@ const Cart = () => {
                   </p>
                 </div>
                 <div className="mt-2 text-left leading-5 text-opacity-70 text-base text-gray-500">
-                  {shortDescription+"..."}
+                  {description?description.slice(0, 20): "New things to try..."}
                 </div>
               </div>
               <div className="ml-4">
@@ -60,6 +89,7 @@ const Cart = () => {
               <button className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold mr-2">
                 +
               </button>
+
               <button className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold">
                 -
               </button>
