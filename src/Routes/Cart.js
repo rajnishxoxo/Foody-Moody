@@ -1,16 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
 import RestroMenuCategory from "../Comp/RestroMenuCategory";
-import { addItem, clearCart } from "../util/cartSlice";
+import { addItem, clearCart, removeItem } from "../util/cartSlice";
 
 const Cart = () => {
   const cartItem = useSelector((store) => {
     return store.cart.item;
   });
 
+  console.log(cartItem)
+
   const itemCounts = {};
 
   cartItem.map((data) => {
-    const { id } = data?.card?.info;
+    const { id } = data?.card?.info;  
 
     if (itemCounts[id]) {
       itemCounts[id]++;
@@ -36,9 +38,17 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
-  const handleAdd = (data)=>{
-    dispatch(addItem(data.item))
-  }
+  const handleAdd = (data) => {
+   
+
+    dispatch(addItem(data));
+  };
+
+  const handleRemove = (data) => {
+    const cardToRemove = data.card;
+    console.log(cardToRemove);
+    dispatch(removeItem(cardToRemove));
+  };
 
   return (
     <div className="text-center m-4 p-4">
@@ -85,9 +95,12 @@ const Cart = () => {
               </div>
             </div>
             <div className="flex items-center">
-              <button className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold m-2" onClick={()=>{
-                handleAdd(data);
-              }}>
+              <button
+                className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold m-2"
+                onClick={() => {
+                  handleAdd(data.item);
+                }}
+              >
                 +
               </button>
 
@@ -95,7 +108,12 @@ const Cart = () => {
                 {count}
               </div>
 
-              <button className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold m-2">
+              <button
+                className="bg-orange-700 w-12 h-12 rounded-xl text-2xl font-semibold m-2"
+                onClick={() => {
+                  handleRemove(data.item);
+                }}
+              >
                 -
               </button>
             </div>
