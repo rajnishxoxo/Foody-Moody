@@ -14,24 +14,15 @@ const cartSlice = createSlice({
     },
     removeItem: (state, action) => {
       const itemToDelete = action.payload;
-      const updatedItems = state.item.filter((item) => {
-        return item.card.info.id !== itemToDelete.card?.info?.id;
+      const indexToRemove = state.item.findIndex((item) => {
+        return item.card.info.id === itemToDelete.card?.info?.id;
       });
-      state.item = updatedItems;
-
-      
-        // const itemToDelete = action.payload;
     
-        // const updatedItems = state.item.filter((item) => {
-        //   return item.card.info.id !== itemToDelete.card?.info?.id;
-        // });
-        // return {
-        //     ...state,
-        //     item: updatedItems,
-        //   };
-
-      
-      },
+      if (indexToRemove !== -1) {
+        state.item.splice(indexToRemove, 1);
+      }
+    },
+    
   },
 });
 
