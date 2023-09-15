@@ -45,7 +45,7 @@ const Cart = () => {
   };
 
   const handleRemove = (data) => {
-    const cardToRemove = [data];
+    const cardToRemove = data;
     console.log(cardToRemove);
     dispatch(removeItem(cardToRemove));
   };
