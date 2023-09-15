@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
-import RestroMenuCategory from "../Comp/RestroMenuCategory";
+
+import { useDispatch, useSelector } from "react-redux";
 import { addItem, clearCart, removeItem } from "../util/cartSlice";
 
 const Cart = () => {
