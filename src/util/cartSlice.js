@@ -13,15 +13,21 @@ const cartSlice = createSlice({
       state.item.length = 0;
     },
     removeItem: (state, action) => {
-        const cardToRemove = action.payload;
+      const itemToDelete = action.payload;
+      state.item=state.item.filter((item)=>{
+        return item.card.info!==itemToDelete.card?.info?.id;
+      })
+
+      
+        // const itemToDelete = action.payload;
     
-        const updatedItems = state.item.filter((item) => {
-          return item.info && item.info.id !== cardToRemove.info.id;
-        });
-        return {
-            ...state,
-            item: updatedItems,
-          };
+        // const updatedItems = state.item.filter((item) => {
+        //   return item.card.info.id !== itemToDelete.card?.info?.id;
+        // });
+        // return {
+        //     ...state,
+        //     item: updatedItems,
+        //   };
 
       
       },
